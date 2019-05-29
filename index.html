@@ -5,7 +5,24 @@
     <title>001</title>
 </head>
 <body>
-    <p>001</p>
-    <input />
+    <p>{ list }</p>
+    <input value="list"/>
 </body>
+<script>
+    window.onload(){
+        var obj = {
+          data: { list: "123" },
+        }
+
+        Object.defineProperty(obj, 'list', {
+          get() {
+            return this.data['list']
+          },
+          set(val) {
+            console.log('值被更改了')
+            this.data['list'] = val
+          }
+        })
+    }
+</script>
 </html>
